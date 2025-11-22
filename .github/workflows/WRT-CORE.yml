@@ -177,7 +177,7 @@ jobs:
         run: |
           cd ./wrt/
 
-          make download -j$(nproc)
+          make -j1 V=s download
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
