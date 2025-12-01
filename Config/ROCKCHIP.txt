@@ -1,25 +1,111 @@
+Skip to content
+Navigation Menu
+
+VIKINGYFY
+/
+OpenWRT-CI
+
+
+
+
+
+Code
+Issues
+Pull requests
+1
+Actions
+Security
+Insights
+
+
+ main
+BreadcrumbsOpenWRT-CI/Config
+/ROCKCHIP.txt
+
+Go to file
+t
+
+Latest commit
+ 
+History
+44 lines (44 loc) · 2.06 KB
+File metadata and controls
+
+Code
+
+Blame
+
+Raw
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
 #设备平台
-# CONFIG_TARGET_rockchip=y
-# CONFIG_TARGET_rockchip_armv8=y
+CONFIG_TARGET_rockchip=y
+CONFIG_TARGET_rockchip_armv8=y
 #设备列表
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_ezpro_mrkaio-m68s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopc-t4=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopc-t6=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c-plus=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r3s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4se=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s-enterprise=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5c=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r6c=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r6s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopc-t4=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopc-t6=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c-plus=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r3s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4se=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s-enterprise=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5c=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r6c=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r6s=y
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r76s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_lunzn_fastrhino-r66s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_lunzn_fastrhino-r68s=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-5=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_lunzn_fastrhino-r66s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_lunzn_fastrhino-r68s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-5=y
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-5-plus=y
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus=y
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts=y
@@ -39,10 +125,18 @@ CONFIG_PACKAGE_wpad-openssl=y
 CONFIG_PACKAGE_kmod-drm-panfrost=y
 CONFIG_PACKAGE_kmod-drm-rockchip=y
 #组件调整
-# CONFIG_TARGET_ROOTFS_SQUASHFS is not set
-# CONFIG_GRUB_CONSOLE is not set
-# CONFIG_GRUB_IMAGES=y
-# CONFIG_VMDK_IMAGES=y
 CONFIG_TARGET_KERNEL_PARTSIZE=128
 CONFIG_TARGET_ROOTFS_PARTSIZE=1024
-CONFIG_TARGET_ROOTFS_EXT4FS=y
+CONFIG_TARGET_ROOTFS_EXT4FS=n
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
