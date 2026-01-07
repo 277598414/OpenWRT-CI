@@ -11,12 +11,18 @@ on:
         required: true
         type: choice
         options:
+          - MEDIATEK
+          - ROCKCHIP
           - X86
+          - IPQ50XX-WIFI-YES
+          - IPQ50XX-WIFI-NO
           - IPQ60XX-WIFI-YES
           - IPQ60XX-WIFI-NO
+          - IPQ807X-WIFI-YES
+          - IPQ807X-WIFI-NO
           - TEST
       SOURCE:
-        default: 'VIKINGYFY/immortalwrt'
+        default: 'LiBwrt/openwrt-6.x'
         required: true
         type: choice
         options:
@@ -25,7 +31,7 @@ on:
           - LiBwrt/openwrt-6.x
           - qosmio/openwrt-ipq
       BRANCH:
-        default: 'main'
+        default: 'main-nss'
         required: true
         type: string
       PACKAGE:
