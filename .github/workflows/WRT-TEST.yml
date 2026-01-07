@@ -11,15 +11,9 @@ on:
         required: true
         type: choice
         options:
-          - MEDIATEK
-          - ROCKCHIP
           - X86
-          - IPQ50XX-WIFI-YES
-          - IPQ50XX-WIFI-NO
           - IPQ60XX-WIFI-YES
           - IPQ60XX-WIFI-NO
-          - IPQ807X-WIFI-YES
-          - IPQ807X-WIFI-NO
           - TEST
       SOURCE:
         default: 'VIKINGYFY/immortalwrt'
@@ -58,9 +52,9 @@ jobs:
       #默认主题
       WRT_THEME: bootstrap
       #默认主机名
-      WRT_NAME: ImmortalWrt
+      WRT_NAME: LiBwrt
       #默认WIFI名称
-      WRT_SSID: ImmortalWrt
+      WRT_SSID: LiBwrt
       #默认WIFI密码
       WRT_WORD: 12345678
       #默认地址
