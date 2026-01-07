@@ -165,26 +165,27 @@ jobs:
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt >> .config
           else
-            cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
+           cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
           fi
-
-          $GITHUB_WORKSPACE/Scripts/Settings.sh
 
           make defconfig -j$(nproc) && make clean -j$(nproc)
 
-#      - name: Download Packages
-#        if: env.WRT_TEST != 'true'
-#        run: |
-#          cd ./wrt/
+#          $GITHUB_WORKSPACE/Scripts/Settings.sh
 
-#          make download -j$(nproc)
+#          make defconfig -j$(nproc) && make clean -j$(nproc)
+
+      - name: Download Packages
+        if: env.WRT_TEST != 'true'
+        run: |
+          cd ./wrt/
+
+          make download -j$(nproc)
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
         run: |
           cd ./wrt/
 
-          make download -j$(nproc)
           make -j$(nproc) || make -j1 V=s
 
       - name: Machine Information
