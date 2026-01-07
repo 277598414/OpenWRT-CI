@@ -22,7 +22,7 @@ on:
           - IPQ807X-WIFI-NO
           - TEST
       SOURCE:
-        default: 'LiBwrt/openwrt-6.x'
+        default: '277598414/openwrt'
         required: true
         type: choice
         options:
@@ -58,9 +58,9 @@ jobs:
       #默认主题
       WRT_THEME: bootstrap
       #默认主机名
-      WRT_NAME: LiBwrt
+      WRT_NAME: OpenWrt
       #默认WIFI名称
-      WRT_SSID: LiBwrt
+      WRT_SSID: OpenWrt
       #默认WIFI密码
       WRT_WORD: 12345678
       #默认地址
