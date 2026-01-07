@@ -155,8 +155,8 @@ jobs:
         run: |
           cd ./wrt/package/
 
-#          $GITHUB_WORKSPACE/Scripts/Packages.sh
-#          $GITHUB_WORKSPACE/Scripts/Handles.sh
+          $GITHUB_WORKSPACE/Scripts/Packages.sh
+          $GITHUB_WORKSPACE/Scripts/Handles.sh
 
       - name: Custom Settings
         run: |
@@ -168,11 +168,9 @@ jobs:
            cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
           fi
 
+          $GITHUB_WORKSPACE/Scripts/Settings.sh
+
           make defconfig -j$(nproc) && make clean -j$(nproc)
-
-#          $GITHUB_WORKSPACE/Scripts/Settings.sh
-
-#          make defconfig -j$(nproc) && make clean -j$(nproc)
 
       - name: Download Packages
         if: env.WRT_TEST != 'true'
