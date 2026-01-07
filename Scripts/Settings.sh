@@ -60,3 +60,4 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	else
 		echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=y" >> ./.config
 	fi
+fi
