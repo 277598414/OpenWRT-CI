@@ -176,6 +176,13 @@ jobs:
         if: env.WRT_TEST != 'true'
         run: |
           cd ./wrt/
+           
+          # 修复缺失依赖
+          sed -i 's/python3-pysocks/python3-socks/g' package/feeds/packages/onionshare-cli/Makefile
+          sed -i 's/python3-unidecode/python3-unidecode/g' package/feeds/packages/onionshare-cli/Makefile
+          # 修复编译错误
+          sed -i 's/libdeflate/libzstd/g' tools/zstd/Makefile
+           make tools/zstd/compile
 
           make download -j$(nproc)
 
