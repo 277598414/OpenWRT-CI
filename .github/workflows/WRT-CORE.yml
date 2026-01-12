@@ -179,6 +179,8 @@ jobs:
 
           make download -j$(nproc)
 
+          continue-on-error: true
+
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
         run: |
