@@ -177,7 +177,7 @@ jobs:
         run: |
           cd ./wrt/
 
-          make download -8
+          make download -j8
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
