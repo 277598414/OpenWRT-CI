@@ -77,7 +77,7 @@ jobs:
           sudo -E apt -yqq install dos2unix python3-netifaces libfuse-dev
           sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
           sudo -E systemctl daemon-reload
-          sudo -E timedatectl set-timezone "Asia/Shanghai"
+          sudo -E timedatectl set-timezone "Asia/Hong_Kong"
 
           sudo mkdir -p /mnt/build_wrt
           sudo chown $USER:$USER /mnt/build_wrt
@@ -96,7 +96,7 @@ jobs:
         run: |
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
-          cd $OPENWRT_PATH/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
+          cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
 
           # GitHub Action 移除国内下载源
           PROJECT_MIRRORS_FILE="./scripts/projectsmirrors.json"
@@ -146,26 +146,26 @@ jobs:
 
       - name: Update Feeds
         run: |
-          cd $OPENWRT_PATH/
+          cd ./wrt/
 
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Custom Packages
         run: |
-          cd $OPENWRT_PATH/package/
+          cd ./wrt/package/
 
+          $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
-#          $GITHUB_WORKSPACE/Scripts/Packages.sh
 
       - name: Custom Settings
         run: |
-          cd $OPENWRT_PATH/
+          cd ./wrt/
 
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt >> .config
           else
-           cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
+            cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
           fi
 
           $GITHUB_WORKSPACE/Scripts/Settings.sh
@@ -175,20 +175,20 @@ jobs:
       - name: Download Packages
         if: env.WRT_TEST != 'true'
         run: |
-          cd $OPENWRT_PATH/
+          cd ./wrt/
 
           make download -j$(nproc)
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
         run: |
-          cd $OPENWRT_PATH
+          cd ./wrt/
 
           make -j$(nproc) || make -j1 V=s
 
       - name: Machine Information
         run: |
-          cd $OPENWRT_PATH/
+          cd ./wrt/
 
           echo "======================="
           lscpu | grep -E "name|Core|Thread"
@@ -200,7 +200,7 @@ jobs:
 
       - name: Package Firmware
         run: |
-          cd $OPENWRT_PATH/ && mkdir ./upload/
+          cd ./wrt/ && mkdir ./upload/
 
           cp -f ./.config ./upload/Config-"$WRT_CONFIG"-"$WRT_INFO"-"$WRT_BRANCH"-"$WRT_DATE".txt
 
