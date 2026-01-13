@@ -96,7 +96,7 @@ jobs:
         run: |
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
-          cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
+          cd $OPENWRT_PATH/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
 
           # GitHub Action 移除国内下载源
           PROJECT_MIRRORS_FILE="./scripts/projectsmirrors.json"
@@ -146,21 +146,21 @@ jobs:
 
       - name: Update Feeds
         run: |
-          cd ./wrt/
+          cd $OPENWRT_PATH/
 
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Custom Packages
         run: |
-          cd ./wrt/package/
+          cd $OPENWRT_PATH/package/
 
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 #          $GITHUB_WORKSPACE/Scripts/Packages.sh
 
       - name: Custom Settings
         run: |
-          cd ./wrt/
+          cd $OPENWRT_PATH/
 
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt >> .config
@@ -175,7 +175,7 @@ jobs:
       - name: Download Packages
         if: env.WRT_TEST != 'true'
         run: |
-          cd ./wrt/
+          cd $OPENWRT_PATH/
 
           make download -j$(nproc)
 
@@ -188,7 +188,7 @@ jobs:
 
       - name: Machine Information
         run: |
-          cd ./wrt/
+          cd $OPENWRT_PATH/
 
           echo "======================="
           lscpu | grep -E "name|Core|Thread"
@@ -200,7 +200,7 @@ jobs:
 
       - name: Package Firmware
         run: |
-          cd ./wrt/ && mkdir ./upload/
+          cd $OPENWRT_PATH/ && mkdir ./upload/
 
           cp -f ./.config ./upload/Config-"$WRT_CONFIG"-"$WRT_INFO"-"$WRT_BRANCH"-"$WRT_DATE".txt
 
