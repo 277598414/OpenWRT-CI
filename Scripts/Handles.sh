@@ -1,4 +1,8 @@
 #!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2026
+
+#!/bin/bash
 
 PKG_PATH="$GITHUB_WORKSPACE/wrt/package/"
 
