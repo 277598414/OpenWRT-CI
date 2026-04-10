@@ -1,4 +1,8 @@
 #!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2026
+
+#!/bin/bash
 
 #安装和更新软件包
 UPDATE_PACKAGE() {
