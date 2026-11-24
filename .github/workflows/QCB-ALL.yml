@@ -36,8 +36,8 @@ jobs:
       #max-parallel: 3
       matrix:
         CONFIG: [IPQ53XX, IPQ95XX]
-        SOURCE: [JiaY-shi/openwrt]
-        BRANCH: [flint3e-support]
+        SOURCE: [JuliusBairaktaris/openwrt-ppe-nss]
+        BRANCH: [ppe-nss]
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
